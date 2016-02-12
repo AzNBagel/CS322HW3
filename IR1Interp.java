@@ -117,9 +117,10 @@ public class IR1Interp {
   // 3. Start interpreting from '_main' with an empty Env.
   //
   public static void execute(IR1.Program n) throws Exception { 
-
-    // ... code needed ...
-
+    Env env = new Env();
+    for(IR1.Func f : n.funcs) {
+      execute(n.funcs, env);
+    }
   }
 
   // Func ---
@@ -290,7 +291,7 @@ public class IR1Interp {
   //
   static int execute(IR1.Call n, Env env) throws Exception {
 
-    // ... code needed ...
+
 
     return CONTINUE;
   }	
@@ -340,9 +341,11 @@ public class IR1Interp {
   static Val evaluate(IR1.Src n, Env env) throws Exception {
     Val val;
     if (n instanceof IR1.Temp) {
+      // Unsure if this needs to be wrapped per comments above.
       val = env.get(n.s);
     }
     if (n instanceof IR1.Id) {
+      // Unsure if this needs to be wrapped per comments above.
       val = env.get(n.s);
     }
     if (n instanceof IR1.IntLit)  val = new IntVal(n.i);
@@ -361,8 +364,12 @@ public class IR1Interp {
   static Val evaluate(IR1.Dest n, Env env) throws Exception {
     Val val;
 
-    // ... code needed ...
-
+    if (n instanceof IR1.Id) {
+      val = env.get(n.s);
+    }
+    if (n instanceof IR1.Temp) {
+      val = env.get(n.s);
+    }
     return val;
   }
 
