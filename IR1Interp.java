@@ -3,6 +3,11 @@
 //---------------------------------------------------------------------------
 // For CS322 W'16 (J. Li).
 //
+//
+// Andrew McCann
+// CS322 HW3
+// Winter 2016
+//
 
 // IR1 interpreter. (A starter version)
 //
@@ -334,11 +339,15 @@ public class IR1Interp {
   //
   static Val evaluate(IR1.Src n, Env env) throws Exception {
     Val val;
-    // if (n instanceof IR1.Temp)    val = 
-    // if (n instanceof IR1.Id)      val = 
-    // if (n instanceof IR1.IntLit)  val = 
-    // if (n instanceof IR1.BoolLit) val = 
-    // if (n instanceof IR1.StrLit)  val = 
+    if (n instanceof IR1.Temp) {
+      val = env.get(n.s);
+    }
+    if (n instanceof IR1.Id) {
+      val = env.get(n.s);
+    }
+    if (n instanceof IR1.IntLit)  val = new IntVal(n.i);
+    if (n instanceof IR1.BoolLit) val = new BoolVal(n.b);
+    if (n instanceof IR1.StrLit)  val = new StrVal(n.s);
     return val;
   }
 
