@@ -1,0 +1,26 @@
+# IR1 Program
+
+_main ()
+(i, b)
+{
+ t1 = 2 * 4
+ t2 = 2 + t1
+ t3 = 9 / 3
+ t4 = t2 - t3
+ i = t4
+ t6 = true
+ t5 = 1 > 2
+ if t5 == true goto L0
+ t8 = false
+ t7 = 3 < 4
+ if t7 == false goto L1
+ t9 = !false
+ t8 = t9
+L1:
+ t6 = t8
+L0:
+ b = t6
+ call _printInt(i)
+ call _printInt(b)
+ return 
+}

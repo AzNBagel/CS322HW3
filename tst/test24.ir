@@ -1,0 +1,11 @@
+# IR1 Program
+
+_main ()
+{
+ t1 = 3 > 0
+ if t1 == false goto L0
+ x = 1
+L0:
+ call _printInt(x)
+ return 
+}

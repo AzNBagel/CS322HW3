@@ -1,0 +1,21 @@
+# IR1 Program
+
+_main ()
+{
+ t2 = false
+ t1 = 1 == 1
+ if t1 == false goto L0
+ t3 = 2 > 4
+ t2 = t3
+L0:
+ x = t2
+ t5 = false
+ t4 = 2 != 2
+ if t4 == false goto L1
+ t5 = x
+L1:
+ y = t5
+ call _printInt(x)
+ call _printInt(y)
+ return 
+}
