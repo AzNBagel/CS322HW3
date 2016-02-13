@@ -325,7 +325,7 @@ public class IR1Interp {
   // 2. Return the result (which should be an index to memory).
   //
   static int evaluate(IR1.Addr n, Env env) throws Exception {
-    int loc = evaluate(n.base, env).asInt();
+    int loc = (int) evaluate(n.base, env);
     return loc + n.offset;
   }
 

@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23be3d17-ed08-467b-a774-cda5af9d5db3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/CS322HW3.iml" afterPath="$PROJECT_DIR$/.idea/CS322HW3.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IR1Interp.java" afterPath="$PROJECT_DIR$/IR1Interp.java" />
     </list>
@@ -31,10 +29,10 @@
           <file leaf-file-name="IR1Interp.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/IR1Interp.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.3371758">
-                  <caret line="334" column="11" selection-start-line="334" selection-start-column="11" selection-end-line="334" selection-end-column="11" />
+                <state vertical-scroll-proportion="0.5057637">
+                  <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
                   <folding>
-                    <element signature="e#0#9859#0" expanded="true" />
+                    <element signature="e#0#9857#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -59,8 +57,8 @@
           <file leaf-file-name="IR1Interp.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ir/IR1Interp.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.7589286">
-                  <caret line="61" column="3" selection-start-line="61" selection-start-column="3" selection-end-line="61" selection-end-column="3" />
+                <state vertical-scroll-proportion="5.9583335">
+                  <caret line="391" column="3" selection-start-line="391" selection-start-column="3" selection-end-line="391" selection-end-column="3" />
                   <folding />
                 </state>
               </provider>
@@ -442,7 +440,13 @@
       <option name="project" value="LOCAL" />
       <updated>1455319639852</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Corrected casting in Src, Dst evals.">
+      <created>1455321429435</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1455321429435</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -479,7 +483,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Working on Src nodes." />
     <MESSAGE value="Added Dest evaluate." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Dest evaluate." />
+    <MESSAGE value="Corrected casting in Src, Dst evals." />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrected casting in Src, Dst evals." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -491,7 +496,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="299" column="4" selection-start-line="299" selection-start-column="4" selection-end-line="299" selection-end-column="4" />
           <folding>
-            <element signature="e#0#9859#0" expanded="true" />
+            <element signature="e#0#9857#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -526,18 +531,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ir/IR1Interp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7589286">
-          <caret line="61" column="3" selection-start-line="61" selection-start-column="3" selection-end-line="61" selection-end-column="3" />
+        <state vertical-scroll-proportion="5.9583335">
+          <caret line="391" column="3" selection-start-line="391" selection-start-column="3" selection-end-line="391" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/IR1Interp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3371758">
-          <caret line="334" column="11" selection-start-line="334" selection-start-column="11" selection-end-line="334" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.5057637">
+          <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
           <folding>
-            <element signature="e#0#9859#0" expanded="true" />
+            <element signature="e#0#9857#0" expanded="true" />
           </folding>
         </state>
       </provider>
