@@ -95,7 +95,7 @@ public class IR1Interp {
   public static void main(String [] args) throws Exception {
     if (args.length == 1) {
       FileInputStream stream = new FileInputStream(args[0]);
-      IR1.Program p = new ir1Parser(stream).Program();
+      IR1.Program p = new IR1Parser(stream).Program();
       stream.close();
       IR1Interp.execute(p);
     } else {
