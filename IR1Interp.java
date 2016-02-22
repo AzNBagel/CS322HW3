@@ -16,6 +16,7 @@
 import java.util.*;
 import java.io.*;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import ir.*;
 
 public class IR1Interp {
@@ -93,10 +94,14 @@ public class IR1Interp {
 	static ArrayList<Val> memory;
 
 	// -- Environment for tracking var, temp, and param's values
-	//    (one copy per fuction invocation)
+	//    (one copy per function invocation)
 	//
 	static class Env extends HashMap<String, Val> {
 	}
+
+	// Used to create the memory allocation that IR1 necessitates
+	static Val undVal = new UndVal();
+
 
 	//-----------------------------------------------------------------
 	// Other Data Structures
@@ -115,7 +120,6 @@ public class IR1Interp {
 
 
 	static HashMap<String, IR1.Func> funcMap;
-
 	static class LabMap extends HashMap<String, Integer> {
 	}
 
@@ -237,14 +241,63 @@ public class IR1Interp {
 		Val result = null;
 
 		if (n.op instanceof IR1.AOP) {
-			boolean leftBool = ((BoolVal) leftVal).b;
-			boolean rightBool = ((BoolVal) rightVal).b;
+			if (leftVal instanceof BoolVal && rightVal instanceof BoolVal) {
+				boolean leftBool = ((BoolVal) leftVal).b;
+				boolean rightBool = ((BoolVal) rightVal).b;
 
-			if ((IR1.AOP) n.op == IR1.AOP.AND) {
-				result = new BoolVal(leftBool && rightBool);
-			} else {
-				result = new BoolVal(leftBool || rightBool);
+				// Operator is &&
+				if (n.op == IR1.AOP.AND) {
+					result = new BoolVal(leftBool && rightBool);
+				}
+				// Operator is ||
+				else {
+					result = new BoolVal(leftBool || rightBool);
+				}
 			}
+			// Left and Right Vals must be IntVals
+			else {
+				int leftInt = ((IntVal) leftVal).i;
+				int rightInt = ((IntVal) rightVal).i;
+
+				if (n.op instanceof IR1.ROP) {
+					switch ((IR1.ROP) n.op) {
+						case GE:
+							result = new BoolVal(leftInt >= rightInt);
+						case GT:
+							result = new BoolVal(leftInt > rightInt);
+						case LE:
+							result = new BoolVal(leftInt <= rightInt);
+						case LT:
+							result = new BoolVal(leftInt < rightInt);
+						case EQ:
+							result = new BoolVal(leftInt == rightInt);
+						case NE:
+							result = new BoolVal(leftInt != rightInt);
+					}
+				}
+
+			}
+		}
+		if (n.op instanceof IR1.ROP) {
+			int leftInt = ((IntVal) leftVal).i;
+			int rightInt = ((IntVal) rightVal).i;
+
+				switch ((IR1.ROP) n.op) {
+					case GE:
+						result = new BoolVal(leftInt >= rightInt);
+					case GT:
+						result = new BoolVal(leftInt > rightInt);
+					case LE:
+						result = new BoolVal(leftInt <= rightInt);
+					case LT:
+						result = new BoolVal(leftInt < rightInt);
+					case EQ:
+						result = new BoolVal(leftInt == rightInt);
+					case NE:
+						result = new BoolVal(leftInt != rightInt);
+
+		}
+				/*
 		} else {
 			int leftInt = ((IntVal) leftVal).i;
 			int rightInt = ((IntVal) rightVal).i;
@@ -274,12 +327,16 @@ public class IR1Interp {
 						result = new IntVal(leftInt * rightInt);
 					case DIV:
 						result = new IntVal(leftInt / rightInt);
+					default:
+						throw new Exception("No")
 				}
 			}
 		}
+		*/
 		env.put(n.dst.toString(), result);
 		return CONTINUE;
-	}
+
+		}
 
 	// Unop ---
 	//  UOP op;
