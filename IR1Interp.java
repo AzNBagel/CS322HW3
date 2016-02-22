@@ -88,6 +88,12 @@ public class IR1Interp {
   static Val retVal = null;             // for return value passing
 
 
+  static HashMap<String, IR1.Func> funcMap;
+  static class LabMap extends HashMap<String, Integer> {}
+  static HashMap<String,LabMap> labelMap;
+
+
+
   //-----------------------------------------------------------------
   // The Main Method
   //-----------------------------------------------------------------
@@ -117,10 +123,21 @@ public class IR1Interp {
   // 3. Start interpreting from '_main' with an empty Env.
   //
   public static void execute(IR1.Program n) throws Exception { 
+    funcMap = new HashMap<>();
+    labelMap = new HashMap<>();
     Env env = new Env();
+    memory = new ArrayList<>();
+    int count;
+
     for(IR1.Func f : n.funcs) {
-      execute(n.funcs, env);
-    }
+      funcMap.put(f.gname.s, f);
+      labelMap.put(f.gname.s, new LabMap());
+      count = 0;
+
+      for stuff in func
+
+  }
+    execute(funcMap.get("_main"), env);
   }
 
   // Func ---
@@ -182,7 +199,7 @@ public class IR1Interp {
   //
   static int execute(IR1.Binop n, Env env) throws Exception {
 
-    // ... code needed ...
+
 
     return CONTINUE;  
   }
@@ -304,7 +321,7 @@ public class IR1Interp {
   // 
   static int execute(IR1.Return n, Env env) throws Exception {
 
-    // ... code needed ...
+
 
     return RETURN;
   }
@@ -325,7 +342,7 @@ public class IR1Interp {
   // 2. Return the result (which should be an index to memory).
   //
   static int evaluate(IR1.Addr n, Env env) throws Exception {
-    int loc = (int) evaluate(n.base, env);
+    int loc = ((IntVal) evaluate(n.base, env)).i;
     return loc + n.offset;
   }
 
