@@ -282,61 +282,26 @@ public class IR1Interp {
 			int leftInt = ((IntVal) leftVal).i;
 			int rightInt = ((IntVal) rightVal).i;
 
-				switch ((IR1.ROP) n.op) {
-					case GE:
-						result = new BoolVal(leftInt >= rightInt);
-					case GT:
-						result = new BoolVal(leftInt > rightInt);
-					case LE:
-						result = new BoolVal(leftInt <= rightInt);
-					case LT:
-						result = new BoolVal(leftInt < rightInt);
-					case EQ:
-						result = new BoolVal(leftInt == rightInt);
-					case NE:
-						result = new BoolVal(leftInt != rightInt);
+			switch ((IR1.ROP) n.op) {
+				case GE:
+					result = new BoolVal(leftInt >= rightInt);
+				case GT:
+					result = new BoolVal(leftInt > rightInt);
+				case LE:
+					result = new BoolVal(leftInt <= rightInt);
+				case LT:
+					result = new BoolVal(leftInt < rightInt);
+				case EQ:
+					result = new BoolVal(leftInt == rightInt);
+				case NE:
+					result = new BoolVal(leftInt != rightInt);
 
-		}
-				/*
-		} else {
-			int leftInt = ((IntVal) leftVal).i;
-			int rightInt = ((IntVal) rightVal).i;
-
-			if (n.op instanceof IR1.ROP) {
-				switch ((IR1.ROP) n.op) {
-					case GE:
-						result = new BoolVal(leftInt >= rightInt);
-					case GT:
-						result = new BoolVal(leftInt > rightInt);
-					case LE:
-						result = new BoolVal(leftInt <= rightInt);
-					case LT:
-						result = new BoolVal(leftInt < rightInt);
-					case EQ:
-						result = new BoolVal(leftInt == rightInt);
-					case NE:
-						result = new BoolVal(leftInt != rightInt);
-				}
-			} else {
-				switch ((IR1.AOP) n.op) {
-					case ADD:
-						result = new IntVal(leftInt + rightInt);
-					case SUB:
-						result = new IntVal(leftInt - rightInt);
-					case MUL:
-						result = new IntVal(leftInt * rightInt);
-					case DIV:
-						result = new IntVal(leftInt / rightInt);
-					default:
-						throw new Exception("No")
-				}
 			}
 		}
-		*/
+
 		env.put(n.dst.toString(), result);
 		return CONTINUE;
-
-		}
+	}
 
 	// Unop ---
 	//  UOP op;
