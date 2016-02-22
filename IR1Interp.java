@@ -313,9 +313,17 @@ public class IR1Interp {
 	// 2. Update 'dst's entry in the Env with operation's result.
 	//
 	static int execute(IR1.Unop n, Env env) throws Exception {
+		Val val = evaluate(n.src, env);
+		Val result = null;
 
-		// ... code needed ...
-
+		//Boolean
+		if(val instanceof BoolVal) {
+			result = new BoolVal(!(((BoolVal)val).b));
+		}
+		else {
+			result = new IntVal(-((IntVal)val).i);
+		}
+		env.put(n.dst.toString(), result);
 		return CONTINUE;
 	}
 
