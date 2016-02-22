@@ -313,15 +313,15 @@ public class IR1Interp {
 	// 2. Update 'dst's entry in the Env with operation's result.
 	//
 	static int execute(IR1.Unop n, Env env) throws Exception {
-		Val val = evaluate(n.src, env);
+		Val srcVal = evaluate(n.src, env);
 		Val result = null;
 
 		//Boolean
-		if(val instanceof BoolVal) {
-			result = new BoolVal(!(((BoolVal)val).b));
+		if(srcVal instanceof BoolVal) {
+			result = new BoolVal(!(((BoolVal)srcVal).b));
 		}
 		else {
-			result = new IntVal(-((IntVal)val).i);
+			result = new IntVal(-((IntVal)srcVal).i);
 		}
 		env.put(n.dst.toString(), result);
 		return CONTINUE;
@@ -335,9 +335,7 @@ public class IR1Interp {
 	//  Evaluate 'src', then update 'dst's entry in the Env.
 	//
 	static int execute(IR1.Move n, Env env) throws Exception {
-
-		// ... code needed ...
-
+		env.put(n.dst.toString(), evaluate(n.src, env));
 		return CONTINUE;
 	}
 
@@ -350,9 +348,7 @@ public class IR1Interp {
 	//  value from memory and update 'dst's entry in the Env.
 	//
 	static int execute(IR1.Load n, Env env) throws Exception {
-
-		// ... code needed ...
-
+		env.put(n.dst.toString(), memory.get(evaluate(n.addr, env)));
 		return CONTINUE;
 	}
 
@@ -366,9 +362,7 @@ public class IR1Interp {
 	//    to the memory entry.
 	//
 	static int execute(IR1.Store n, Env env) throws Exception {
-
-		// ... code needed ...
-
+		memory.set(evaluate(n.addr, env), evaluate(n.src, env));
 		return CONTINUE;
 	}
 
@@ -384,7 +378,7 @@ public class IR1Interp {
 	//
 	static int execute(IR1.CJump n, Env env) throws Exception {
 
-		// ... code needed ...
+
 
 	}
 
