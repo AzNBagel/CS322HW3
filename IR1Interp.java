@@ -134,9 +134,14 @@ public class IR1Interp {
       labelMap.put(f.gname.s, new LabMap());
       count = 0;
 
-      for stuff in func
-
-  }
+      for(IR1.Inst i : f.code) {
+        if(i instanceof IR1.LabelDec){
+          LabMap funcLabel = labelMap.get(f.gname.s);
+          funcLabel.put(((IR1.LabelDec)i).lab.name, count);
+          count++;
+        }
+      }
+    }
     execute(funcMap.get("_main"), env);
   }
 
