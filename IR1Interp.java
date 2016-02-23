@@ -275,9 +275,25 @@ public class IR1Interp {
 							result = new BoolVal(leftInt != rightInt);
 					}
 				}
+				// Must be AOP
+				else {
+					switch ((IR1.AOP) n.op) {
+						case ADD:
+							result = new IntVal(leftInt + rightInt);
+						case SUB:
+							result = new IntVal(leftInt - rightInt);
+						case MUL:
+							result = new IntVal(leftInt * rightInt);
+						case DIV:
+							result = new IntVal(leftInt / rightInt);
+						default:
+							throw new Exception("No");
 
+					}
+				}
 			}
 		}
+
 		if (n.op instanceof IR1.ROP) {
 			int leftInt = ((IntVal) leftVal).i;
 			int rightInt = ((IntVal) rightVal).i;
@@ -298,7 +314,23 @@ public class IR1Interp {
 
 			}
 		}
+		else {
+			int leftInt = ((IntVal) leftVal).i;
+			int rightInt = ((IntVal) rightVal).i;
 
+			switch ((IR1.AOP) n.op) {
+				case ADD:
+					result = new IntVal(leftInt + rightInt);
+				case SUB:
+					result = new IntVal(leftInt - rightInt);
+				case MUL:
+					result = new IntVal(leftInt * rightInt);
+				case DIV:
+					result = new IntVal(leftInt / rightInt);
+				default:
+					throw new Exception("No");
+			}
+		}
 		env.put(n.dst.toString(), result);
 		return CONTINUE;
 	}
@@ -377,8 +409,29 @@ public class IR1Interp {
 	//    of the jump target label; otherwise return CONTINUE.
 	//
 	static int execute(IR1.CJump n, Env env) throws Exception {
+		Val leftVal = evaluate(n.src1, env);
+		Val rightVal = evaluate(n.src2, env);
+		boolean result;
 
+		if (leftVal instanceof BoolVal && rightVal instanceof BoolVal) {
+			boolean leftBool = ((BoolVal) leftVal).b;
+			boolean rightBool = ((BoolVal) rightVal).b;
 
+			if (n.op == IR1.ROP.EQ) {
+				result = (leftBool == rightBool);
+			} else {
+				result = (leftBool != rightBool);
+			}
+		}
+		else {
+			int leftInt = ((IntVal) leftVal).i;
+		}
+		if(result) {
+			return labelMap.get(n.lab.name);
+		}
+		else {
+			return CONTINUE;
+		}
 
 	}
 
