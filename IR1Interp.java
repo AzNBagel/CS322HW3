@@ -544,7 +544,7 @@ public class IR1Interp {
 		}
 		if (n instanceof IR1.Id) {
 			// Unsure if this needs to be wrapped per comments above.
-			val = env.get(((IR1.Id) n).s);
+			val = env.get(n.toString());
 		}
 		if (n instanceof IR1.IntLit) val = new IntVal(((IR1.IntLit) n).i);
 		if (n instanceof IR1.BoolLit) val = new BoolVal(((IR1.BoolLit) n).b);
