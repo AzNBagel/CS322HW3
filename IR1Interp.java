@@ -540,11 +540,11 @@ public class IR1Interp {
 		Val val = null;
 		if (n instanceof IR1.Temp) {
 			// Unsure if this needs to be wrapped per comments above.
-			val = env.get(((IR1.StrLit) n).s);
+			val = env.get(n.toString());
 		}
 		if (n instanceof IR1.Id) {
 			// Unsure if this needs to be wrapped per comments above.
-			val = env.get(((IR1.StrLit) n).s);
+			val = env.get(((IR1.Id) n).s);
 		}
 		if (n instanceof IR1.IntLit) val = new IntVal(((IR1.IntLit) n).i);
 		if (n instanceof IR1.BoolLit) val = new BoolVal(((IR1.BoolLit) n).b);
@@ -560,14 +560,14 @@ public class IR1Interp {
 	//  in a Val and return.
 	//
 	static Val evaluate(IR1.Dest n, Env env) throws Exception {
-		Val val;
+		Val val = null;
 
 		if (n instanceof IR1.Id) {
-			val = env.get(((IR1.StrLit) n).s);
+			val = env.get(((IR1.Id) n).s);
 		}
 		if (n instanceof IR1.Temp) {
-			val = env.get(((IR1.StrLit) n).s);
-		} else throw new Exception("Invalid Dest evalutation.");
+			val = env.get(n.toString());
+		}
 		return val;
 	}
 

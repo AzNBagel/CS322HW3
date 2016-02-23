@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23be3d17-ed08-467b-a774-cda5af9d5db3" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ir/IR1Interp.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IR1Interp.java" afterPath="$PROJECT_DIR$/IR1Interp.java" />
     </list>
@@ -30,10 +29,10 @@
           <file leaf-file-name="IR1Interp.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/IR1Interp.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6615737">
-                  <caret line="496" column="2" selection-start-line="496" selection-start-column="2" selection-end-line="496" selection-end-column="2" />
+                <state vertical-scroll-proportion="0.8411001">
+                  <caret line="572" column="0" selection-start-line="572" selection-start-column="0" selection-end-line="572" selection-end-column="0" />
                   <folding>
-                    <element signature="e#0#14251#0" expanded="true" />
+                    <element signature="e#0#14182#0" expanded="true" />
                     <element signature="imports" expanded="true" />
                   </folding>
                 </state>
@@ -47,8 +46,8 @@
           <file leaf-file-name="IR1.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ir/IR1.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.38260868">
-                  <caret line="145" column="25" selection-start-line="145" selection-start-column="25" selection-end-line="145" selection-end-column="25" />
+                <state vertical-scroll-proportion="-1.5233002">
+                  <caret line="158" column="47" selection-start-line="158" selection-start-column="47" selection-end-line="158" selection-end-column="47" />
                   <folding>
                     <element signature="e#0#8641#0" expanded="true" />
                     <element signature="imports" expanded="true" />
@@ -524,7 +523,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456210670333</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Resync">
+      <created>1456211019051</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1456211019051</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -584,7 +589,8 @@
     <MESSAGE value="Everything except Call." />
     <MESSAGE value="Cleared all errors time to debug." />
     <MESSAGE value="Added implementation to Call Int case, changed src nodes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added implementation to Call Int case, changed src nodes." />
+    <MESSAGE value="Resync" />
+    <option name="LAST_COMMIT_MESSAGE" value="Resync" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -602,7 +608,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="432" column="6" selection-start-line="432" selection-start-column="6" selection-end-line="432" selection-end-column="6" />
           <folding>
-            <element signature="e#0#14251#0" expanded="true" />
+            <element signature="e#0#14182#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -624,7 +630,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="96" column="4" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="4" />
           <folding>
-            <element signature="e#0#14251#0" expanded="true" />
+            <element signature="e#0#14182#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -646,7 +652,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="331" column="4" selection-start-line="331" selection-start-column="4" selection-end-line="331" selection-end-column="4" />
           <folding>
-            <element signature="e#0#14251#0" expanded="true" />
+            <element signature="e#0#14182#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -668,7 +674,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="210" column="38" selection-start-line="210" selection-start-column="38" selection-end-line="210" selection-end-column="38" />
           <folding>
-            <element signature="e#0#14251#0" expanded="true" />
+            <element signature="e#0#14182#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -690,7 +696,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="137" column="16" selection-start-line="137" selection-start-column="16" selection-end-line="137" selection-end-column="16" />
           <folding>
-            <element signature="e#0#14251#0" expanded="true" />
+            <element signature="e#0#14182#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -712,7 +718,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="103" column="3" selection-start-line="103" selection-start-column="3" selection-end-line="103" selection-end-column="3" />
           <folding>
-            <element signature="e#0#14251#0" expanded="true" />
+            <element signature="e#0#14182#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -734,7 +740,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
           <folding>
-            <element signature="e#0#14251#0" expanded="true" />
+            <element signature="e#0#14182#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -756,7 +762,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
           <folding>
-            <element signature="e#0#14251#0" expanded="true" />
+            <element signature="e#0#14182#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -778,7 +784,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="299" column="4" selection-start-line="299" selection-start-column="4" selection-end-line="299" selection-end-column="4" />
           <folding>
-            <element signature="e#0#14251#0" expanded="true" />
+            <element signature="e#0#14182#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -797,8 +803,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ir/IR1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38260868">
-          <caret line="145" column="25" selection-start-line="145" selection-start-column="25" selection-end-line="145" selection-end-column="25" />
+        <state vertical-scroll-proportion="-1.5233002">
+          <caret line="158" column="47" selection-start-line="158" selection-start-column="47" selection-end-line="158" selection-end-column="47" />
           <folding>
             <element signature="e#0#8641#0" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -808,10 +814,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/IR1Interp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6615737">
-          <caret line="496" column="2" selection-start-line="496" selection-start-column="2" selection-end-line="496" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.8411001">
+          <caret line="572" column="0" selection-start-line="572" selection-start-column="0" selection-end-line="572" selection-end-column="0" />
           <folding>
-            <element signature="e#0#14251#0" expanded="true" />
+            <element signature="e#0#14182#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
