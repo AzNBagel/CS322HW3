@@ -395,7 +395,7 @@ public class IR1Interp {
 				result = (leftBool != rightBool);
 			}
 		}
-		else { //if (leftVal instanceof IntVal && rightVal instanceof IntVal) {
+		else if (leftVal instanceof IntVal && rightVal instanceof IntVal) {
 
 			int leftInt = ((IntVal) leftVal).i;
 			int rightInt = ((IntVal)rightVal).i;
@@ -422,6 +422,9 @@ public class IR1Interp {
 				default:
 					throw new Exception("something is broken");
 			}
+		}
+		else {
+			throw new Exception("Something went terribly wrong");
 		}
 
 		if (result) {
@@ -464,10 +467,29 @@ public class IR1Interp {
 	//    the return value (should be avaiable in variable 'retVal').
 	//
 	static int execute(IR1.Call n, Env env) throws Exception {
+		if(n.gname.s.equals("_malloc")) {
+			int pos = memory.size();
+			int memSize = ((IntVal) n.args[0]).i;
+			for(int i=0; i < memSize; i++) {
+				memory.add(new UndVal());
+			}
+			env.put(n.rdst.toString(), new IntVal(pos));
+		} else if (n.gname.s.equals("_printInt")) {
 
-		// Check if pre-defined functions
-
-
+		} else if (n.gname.s.equals("_printStr")) {
+			Val val = evaluate(n.args[0], env);
+			System.out.println("" + val);
+		} else {
+			IR1.Func func = funcMap.get(n.gname.s);
+			Env funcEnv = new Env();
+			int count = 0;
+			for(IR1.Id p: func.params) {
+				funcEnv.put("" + p, evaluate(n.args[count], env));
+				count++;
+			}
+			execute(func, funcEnv);
+			env.put(n.rdst.toString(), retVal);
+		}
 		return CONTINUE;
 	}
 
