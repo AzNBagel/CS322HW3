@@ -160,6 +160,7 @@ public class IR1Interp {
 		labelMap = new HashMap<>();
 		Env env = new Env();
 		memory = new ArrayList<>();
+		retVal = new UndVal();
 		int count;
 
 		for (IR1.Func f : n.funcs) {

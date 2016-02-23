@@ -23,42 +23,21 @@
     <favorites_list name="CS322HW3" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.56412876">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-          <file leaf-file-name="IR1Interp.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/IR1Interp.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6424752">
-                  <caret line="494" column="3" selection-start-line="494" selection-start-column="3" selection-end-line="494" selection-end-column="3" />
-                  <folding>
-                    <element signature="e#0#14071#0" expanded="true" />
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-          <file leaf-file-name="IR1.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/ir/IR1.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-0.7883881">
-                  <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
-                  <folding>
-                    <element signature="e#0#8641#0" expanded="true" />
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
+      <file leaf-file-name="IR1Interp.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/IR1Interp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5477658">
+              <caret line="474" column="14" selection-start-line="474" selection-start-column="14" selection-end-line="474" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#14096#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -77,10 +56,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1600" />
-    <option name="y" value="-1586" />
-    <option name="width" value="2542" />
-    <option name="height" value="1537" />
+    <option name="x" value="2860" />
+    <option name="y" value="-1575" />
+    <option name="width" value="1282" />
+    <option name="height" value="1526" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -547,11 +526,17 @@
       <option name="project" value="LOCAL" />
       <updated>1456213572971</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Trying to clear Cast Error in Call">
+      <created>1456214322656</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1456214322656</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1600" y="-1586" width="2542" height="1537" extended-state="6" />
+    <frame x="2860" y="-1575" width="1282" height="1526" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -564,7 +549,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32912332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07212714" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1482412" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -610,7 +595,8 @@
     <MESSAGE value="Resync" />
     <MESSAGE value="Changed last two blocks again." />
     <MESSAGE value="Changed to toString method in SrcNode" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed to toString method in SrcNode" />
+    <MESSAGE value="Trying to clear Cast Error in Call" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trying to clear Cast Error in Call" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -628,7 +614,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="432" column="6" selection-start-line="432" selection-start-column="6" selection-end-line="432" selection-end-column="6" />
           <folding>
-            <element signature="e#0#14071#0" expanded="true" />
+            <element signature="e#0#14096#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -650,7 +636,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="96" column="4" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="4" />
           <folding>
-            <element signature="e#0#14071#0" expanded="true" />
+            <element signature="e#0#14096#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -672,7 +658,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="331" column="4" selection-start-line="331" selection-start-column="4" selection-end-line="331" selection-end-column="4" />
           <folding>
-            <element signature="e#0#14071#0" expanded="true" />
+            <element signature="e#0#14096#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -694,7 +680,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="210" column="38" selection-start-line="210" selection-start-column="38" selection-end-line="210" selection-end-column="38" />
           <folding>
-            <element signature="e#0#14071#0" expanded="true" />
+            <element signature="e#0#14096#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -716,7 +702,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="137" column="16" selection-start-line="137" selection-start-column="16" selection-end-line="137" selection-end-column="16" />
           <folding>
-            <element signature="e#0#14071#0" expanded="true" />
+            <element signature="e#0#14096#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -738,7 +724,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="103" column="3" selection-start-line="103" selection-start-column="3" selection-end-line="103" selection-end-column="3" />
           <folding>
-            <element signature="e#0#14071#0" expanded="true" />
+            <element signature="e#0#14096#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -760,7 +746,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
           <folding>
-            <element signature="e#0#14071#0" expanded="true" />
+            <element signature="e#0#14096#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -782,7 +768,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
           <folding>
-            <element signature="e#0#14071#0" expanded="true" />
+            <element signature="e#0#14096#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -804,7 +790,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="299" column="4" selection-start-line="299" selection-start-column="4" selection-end-line="299" selection-end-column="4" />
           <folding>
-            <element signature="e#0#14071#0" expanded="true" />
+            <element signature="e#0#14096#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -834,10 +820,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/IR1Interp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6424752">
-          <caret line="494" column="3" selection-start-line="494" selection-start-column="3" selection-end-line="494" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.5477658">
+          <caret line="474" column="14" selection-start-line="474" selection-start-column="14" selection-end-line="474" selection-end-column="14" />
           <folding>
-            <element signature="e#0#14071#0" expanded="true" />
+            <element signature="e#0#14096#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
