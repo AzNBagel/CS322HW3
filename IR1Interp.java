@@ -120,6 +120,7 @@ public class IR1Interp {
 
 
 	static HashMap<String, IR1.Func> funcMap;
+
 	static class LabMap extends HashMap<String, Integer> {
 	}
 
@@ -254,86 +255,58 @@ public class IR1Interp {
 					result = new BoolVal(leftBool || rightBool);
 				}
 			}
-			// Left and Right Vals must be IntVals
-			else {
+			else if (leftVal instanceof IntVal && rightVal instanceof IntVal) {
 				int leftInt = ((IntVal) leftVal).i;
 				int rightInt = ((IntVal) rightVal).i;
 
-				if (n.op instanceof IR1.ROP) {
-					switch ((IR1.ROP) n.op) {
-						case GE:
-							result = new BoolVal(leftInt >= rightInt);
-						case GT:
-							result = new BoolVal(leftInt > rightInt);
-						case LE:
-							result = new BoolVal(leftInt <= rightInt);
-						case LT:
-							result = new BoolVal(leftInt < rightInt);
-						case EQ:
-							result = new BoolVal(leftInt == rightInt);
-						case NE:
-							result = new BoolVal(leftInt != rightInt);
-					}
-				}
-				// Must be AOP
-				else {
-					switch ((IR1.AOP) n.op) {
-						case ADD:
-							result = new IntVal(leftInt + rightInt);
-						case SUB:
-							result = new IntVal(leftInt - rightInt);
-						case MUL:
-							result = new IntVal(leftInt * rightInt);
-						case DIV:
-							result = new IntVal(leftInt / rightInt);
-						default:
-							throw new Exception("No");
-
-					}
+				switch ((IR1.AOP) n.op) {
+					case ADD:
+						result = new IntVal(leftInt + rightInt);
+						break;
+					case SUB:
+						result = new IntVal(leftInt - rightInt);
+						break;
+					case MUL:
+						result = new IntVal(leftInt * rightInt);
+						break;
+					case DIV:
+						result = new IntVal(leftInt / rightInt);
+						break;
 				}
 			}
 		}
+		else if (n.op instanceof IR1.ROP) {
+			if (leftVal instanceof IntVal && rightVal instanceof IntVal) {
+				int leftInt = ((IntVal) leftVal).i;
+				int rightInt = ((IntVal) rightVal).i;
 
-		if (n.op instanceof IR1.ROP) {
-			int leftInt = ((IntVal) leftVal).i;
-			int rightInt = ((IntVal) rightVal).i;
-
-			switch ((IR1.ROP) n.op) {
-				case GE:
-					result = new BoolVal(leftInt >= rightInt);
-				case GT:
-					result = new BoolVal(leftInt > rightInt);
-				case LE:
-					result = new BoolVal(leftInt <= rightInt);
-				case LT:
-					result = new BoolVal(leftInt < rightInt);
-				case EQ:
-					result = new BoolVal(leftInt == rightInt);
-				case NE:
-					result = new BoolVal(leftInt != rightInt);
-
+				switch ((IR1.ROP) n.op) {
+					case GE:
+						result = new BoolVal(leftInt >= rightInt);
+						break;
+					case GT:
+						result = new BoolVal(leftInt > rightInt);
+						break;
+					case LE:
+						result = new BoolVal(leftInt <= rightInt);
+						break;
+					case LT:
+						result = new BoolVal(leftInt < rightInt);
+						break;
+					case EQ:
+						result = new BoolVal(leftInt == rightInt);
+						break;
+					case NE:
+						result = new BoolVal(leftInt != rightInt);
+						break;
+				}
 			}
 		}
-		else {
-			int leftInt = ((IntVal) leftVal).i;
-			int rightInt = ((IntVal) rightVal).i;
 
-			switch ((IR1.AOP) n.op) {
-				case ADD:
-					result = new IntVal(leftInt + rightInt);
-				case SUB:
-					result = new IntVal(leftInt - rightInt);
-				case MUL:
-					result = new IntVal(leftInt * rightInt);
-				case DIV:
-					result = new IntVal(leftInt / rightInt);
-				default:
-					throw new Exception("No");
-			}
-		}
 		env.put(n.dst.toString(), result);
 		return CONTINUE;
 	}
+
 
 	// Unop ---
 	//  UOP op;
@@ -349,11 +322,10 @@ public class IR1Interp {
 		Val result = null;
 
 		//Boolean
-		if(srcVal instanceof BoolVal) {
-			result = new BoolVal(!(((BoolVal)srcVal).b));
-		}
-		else {
-			result = new IntVal(-((IntVal)srcVal).i);
+		if (srcVal instanceof BoolVal) {
+			result = new BoolVal(!(((BoolVal) srcVal).b));
+		} else {
+			result = new IntVal(-((IntVal) srcVal).i);
 		}
 		env.put(n.dst.toString(), result);
 		return CONTINUE;
@@ -423,16 +395,43 @@ public class IR1Interp {
 				result = (leftBool != rightBool);
 			}
 		}
-		else {
+		else { //if (leftVal instanceof IntVal && rightVal instanceof IntVal) {
+
 			int leftInt = ((IntVal) leftVal).i;
-		}
-		if(result) {
-			return labelMap.get(n.lab.name);
-		}
-		else {
-			return CONTINUE;
+			int rightInt = ((IntVal)rightVal).i;
+
+			switch (n.op) {
+				case LE:
+					result = leftInt <= rightInt;
+					break;
+				case LT:
+					result = leftInt < rightInt;
+					break;
+				case GE:
+					result = leftInt >= rightInt;
+					break;
+				case GT:
+					result = leftInt > rightInt;
+					break;
+				case EQ:
+					result = leftInt == rightInt;
+					break;
+				case NE:
+					result = leftInt != rightInt;
+					break;
+				default:
+					throw new Exception("something is broken");
+			}
 		}
 
+		if (result) {
+			for (LabMap i : labelMap.values()) {
+				if(i.containsKey(n.lab.name)) {
+					return i.get(n.lab.name);
+				}
+			}
+		}
+		return RETURN;
 	}
 
 	// Jump ---
@@ -442,10 +441,14 @@ public class IR1Interp {
 	//  Find and return the instruction index of the jump target label.
 	//
 	static int execute(IR1.Jump n, Env env) throws Exception {
-
-		// ... code needed ...
-
+		for (LabMap i : labelMap.values()) {
+			if(i.containsKey(n.lab.name)) {
+				return i.get(n.lab.name);
+			}
+		}
+		return RETURN;
 	}
+
 
 	// Call ---
 	//  Global gname;
@@ -462,6 +465,8 @@ public class IR1Interp {
 	//
 	static int execute(IR1.Call n, Env env) throws Exception {
 
+		// Check if pre-defined functions
+
 
 		return CONTINUE;
 	}
@@ -473,8 +478,8 @@ public class IR1Interp {
 	//  If 'val' is not null, set it to the variable 'retVal'.
 	//
 	static int execute(IR1.Return n, Env env) throws Exception {
-
-
+		if (n.val != null)
+			retVal = evaluate(n.val, env);
 		return RETURN;
 	}
 
