@@ -469,7 +469,7 @@ public class IR1Interp {
 	static int execute(IR1.Call n, Env env) throws Exception {
 		if(n.gname.s.equals("_malloc")) {
 			int pos = memory.size();
-			int memSize = ((IntVal) n.args[0]).i;
+			int memSize = ((IntVal) evaluate(n.args[0], env)).i;
 			for(int i=0; i < memSize; i++) {
 				memory.add(new UndVal());
 			}
