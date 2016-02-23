@@ -475,7 +475,8 @@ public class IR1Interp {
 			}
 			env.put(n.rdst.toString(), new IntVal(pos));
 		} else if (n.gname.s.equals("_printInt")) {
-
+			Val val = evaluate(n.args[0], env);
+			System.out.println("" + val);
 		} else if (n.gname.s.equals("_printStr")) {
 			Val val = evaluate(n.args[0], env);
 			System.out.println("" + val);
@@ -535,7 +536,7 @@ public class IR1Interp {
 	//  - For the literals, wrap their value in a Val and return.
 	//
 	static Val evaluate(IR1.Src n, Env env) throws Exception {
-		Val val;
+		Val val = null;
 		if (n instanceof IR1.Temp) {
 			// Unsure if this needs to be wrapped per comments above.
 			val = env.get(((IR1.StrLit) n).s);
@@ -547,7 +548,6 @@ public class IR1Interp {
 		if (n instanceof IR1.IntLit) val = new IntVal(((IR1.IntLit) n).i);
 		if (n instanceof IR1.BoolLit) val = new BoolVal(((IR1.BoolLit) n).b);
 		if (n instanceof IR1.StrLit) val = new StrVal(((IR1.StrLit) n).s);
-		else throw new Exception("Invalid Src eval");
 		return val;
 	}
 
