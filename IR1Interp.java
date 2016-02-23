@@ -539,11 +539,9 @@ public class IR1Interp {
 	static Val evaluate(IR1.Src n, Env env) throws Exception {
 		Val val = null;
 		if (n instanceof IR1.Temp) {
-			// Unsure if this needs to be wrapped per comments above.
 			val = env.get(n.toString());
 		}
 		if (n instanceof IR1.Id) {
-			// Unsure if this needs to be wrapped per comments above.
 			val = env.get(n.toString());
 		}
 		if (n instanceof IR1.IntLit) val = new IntVal(((IR1.IntLit) n).i);
@@ -563,7 +561,7 @@ public class IR1Interp {
 		Val val = null;
 
 		if (n instanceof IR1.Id) {
-			val = env.get(((IR1.Id) n).s);
+			val = env.get(n.toString());
 		}
 		if (n instanceof IR1.Temp) {
 			val = env.get(n.toString());
