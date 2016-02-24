@@ -27,10 +27,10 @@
       <file leaf-file-name="IR1Interp.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/IR1Interp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6259673">
-              <caret line="176" column="16" selection-start-line="176" selection-start-column="16" selection-end-line="176" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.82788295">
+              <caret line="437" column="19" selection-start-line="437" selection-start-column="19" selection-end-line="437" selection-end-column="19" />
               <folding>
-                <element signature="e#0#14096#0" expanded="true" />
+                <element signature="e#0#14097#0" expanded="true" />
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
@@ -537,7 +537,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456215708921</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Changed count location.">
+      <created>1456272060198</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1456272060198</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -546,6 +552,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -558,7 +565,6 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -602,7 +608,8 @@
     <MESSAGE value="Changed to toString method in SrcNode" />
     <MESSAGE value="Trying to clear Cast Error in Call" />
     <MESSAGE value="Initialized retVal&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initialized retVal&#10;" />
+    <MESSAGE value="Changed count location." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed count location." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -620,7 +627,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#14096#0" expanded="true" />
+            <element signature="e#0#14097#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -631,7 +638,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#14096#0" expanded="true" />
+            <element signature="e#0#14097#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -642,7 +649,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="432" column="6" selection-start-line="432" selection-start-column="6" selection-end-line="432" selection-end-column="6" />
           <folding>
-            <element signature="e#0#14096#0" expanded="true" />
+            <element signature="e#0#14097#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -664,7 +671,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="96" column="4" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="4" />
           <folding>
-            <element signature="e#0#14096#0" expanded="true" />
+            <element signature="e#0#14097#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -686,7 +693,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="331" column="4" selection-start-line="331" selection-start-column="4" selection-end-line="331" selection-end-column="4" />
           <folding>
-            <element signature="e#0#14096#0" expanded="true" />
+            <element signature="e#0#14097#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -708,7 +715,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="210" column="38" selection-start-line="210" selection-start-column="38" selection-end-line="210" selection-end-column="38" />
           <folding>
-            <element signature="e#0#14096#0" expanded="true" />
+            <element signature="e#0#14097#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -730,7 +737,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="137" column="16" selection-start-line="137" selection-start-column="16" selection-end-line="137" selection-end-column="16" />
           <folding>
-            <element signature="e#0#14096#0" expanded="true" />
+            <element signature="e#0#14097#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -752,7 +759,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="103" column="3" selection-start-line="103" selection-start-column="3" selection-end-line="103" selection-end-column="3" />
           <folding>
-            <element signature="e#0#14096#0" expanded="true" />
+            <element signature="e#0#14097#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -774,7 +781,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
           <folding>
-            <element signature="e#0#14096#0" expanded="true" />
+            <element signature="e#0#14097#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -796,7 +803,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
           <folding>
-            <element signature="e#0#14096#0" expanded="true" />
+            <element signature="e#0#14097#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -818,7 +825,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="299" column="4" selection-start-line="299" selection-start-column="4" selection-end-line="299" selection-end-column="4" />
           <folding>
-            <element signature="e#0#14096#0" expanded="true" />
+            <element signature="e#0#14097#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -848,10 +855,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/IR1Interp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6259673">
-          <caret line="176" column="16" selection-start-line="176" selection-start-column="16" selection-end-line="176" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.82788295">
+          <caret line="437" column="19" selection-start-line="437" selection-start-column="19" selection-end-line="437" selection-end-column="19" />
           <folding>
-            <element signature="e#0#14096#0" expanded="true" />
+            <element signature="e#0#14097#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>

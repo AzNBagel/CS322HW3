@@ -172,7 +172,6 @@ public class IR1Interp {
 				if (i instanceof IR1.LabelDec) {
 					LabMap funcLabel = labelMap.get(f.gname.s);
 					funcLabel.put(((IR1.LabelDec) i).lab.name, count);
-
 				}
 				count++;
 			}
@@ -436,7 +435,7 @@ public class IR1Interp {
 				}
 			}
 		}
-		return RETURN;
+		return CONTINUE;
 	}
 
 	// Jump ---
