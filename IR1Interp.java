@@ -118,12 +118,14 @@ public class IR1Interp {
 	static final int RETURN = -2;    // execution status
 	static Val retVal = null;             // for return value passing
 
-
+	// Structure to track function code block info
 	static HashMap<String, IR1.Func> funcMap;
 
+	// Structure to track location of labeldecs
 	static class LabMap extends HashMap<String, Integer> {
 	}
 
+	// Map of label locations
 	static HashMap<String, LabMap> labelMap;
 
 
@@ -156,11 +158,14 @@ public class IR1Interp {
 	// 3. Start interpreting from '_main' with an empty Env.
 	//
 	public static void execute(IR1.Program n) throws Exception {
+		// Init all the global tracking structures.
 		funcMap = new HashMap<>();
 		labelMap = new HashMap<>();
 		Env env = new Env();
 		memory = new ArrayList<>();
 		retVal = new UndVal();
+
+		// Variable to track lines of execution per func
 		int count;
 
 		for (IR1.Func f : n.funcs) {
@@ -171,8 +176,10 @@ public class IR1Interp {
 			for (IR1.Inst i : f.code) {
 				if (i instanceof IR1.LabelDec) {
 					LabMap funcLabel = labelMap.get(f.gname.s);
+					// Insert the location in the LabMap for this function.
 					funcLabel.put(((IR1.LabelDec) i).lab.name, count);
 				}
+				// Incremement every inst
 				count++;
 			}
 		}
@@ -226,7 +233,6 @@ public class IR1Interp {
 	// - Each execute() routine returns CONTINUE, RETURN, or a new idx
 	//   (target of jump).
 	//
-
 	// Binop ---
 	//  BOP op;
 	//  Dest dst;
@@ -242,7 +248,9 @@ public class IR1Interp {
 		Val rightVal = evaluate(n.src2, env);
 		Val result = null;
 
+		// Execution sequence if Arithmetic Operand
 		if (n.op instanceof IR1.AOP) {
+			// If left and right are both Booleans
 			if (leftVal instanceof BoolVal && rightVal instanceof BoolVal) {
 				boolean leftBool = ((BoolVal) leftVal).b;
 				boolean rightBool = ((BoolVal) rightVal).b;
@@ -255,11 +263,12 @@ public class IR1Interp {
 				else {
 					result = new BoolVal(leftBool || rightBool);
 				}
-			}
+			} // If left and right and int values
 			else if (leftVal instanceof IntVal && rightVal instanceof IntVal) {
 				int leftInt = ((IntVal) leftVal).i;
 				int rightInt = ((IntVal) rightVal).i;
 
+				// Switch based on what type of operand we see.
 				switch ((IR1.AOP) n.op) {
 					case ADD:
 						result = new IntVal(leftInt + rightInt);
@@ -275,8 +284,9 @@ public class IR1Interp {
 						break;
 				}
 			}
-		}
+		}	// Otherwise we must have a Relational Operand
 		else if (n.op instanceof IR1.ROP) {
+			// Check what type of values we have
 			if (leftVal instanceof IntVal && rightVal instanceof IntVal) {
 				int leftInt = ((IntVal) leftVal).i;
 				int rightInt = ((IntVal) rightVal).i;
@@ -303,7 +313,7 @@ public class IR1Interp {
 				}
 			}
 		}
-
+		// Save value into the dst within the env
 		env.put(n.dst.toString(), result);
 		return CONTINUE;
 	}
@@ -322,10 +332,10 @@ public class IR1Interp {
 		Val srcVal = evaluate(n.src, env);
 		Val result = null;
 
-		//Boolean
+		// Boolean
 		if (srcVal instanceof BoolVal) {
 			result = new BoolVal(!(((BoolVal) srcVal).b));
-		} else {
+		} else { // Int
 			result = new IntVal(-((IntVal) srcVal).i);
 		}
 		env.put(n.dst.toString(), result);
@@ -382,10 +392,14 @@ public class IR1Interp {
 	//    of the jump target label; otherwise return CONTINUE.
 	//
 	static int execute(IR1.CJump n, Env env) throws Exception {
+		// Pretty much a duplicate of what I checked in BINOP
+		//
+		// Eval the src's so we can check types
 		Val leftVal = evaluate(n.src1, env);
 		Val rightVal = evaluate(n.src2, env);
 		boolean result;
 
+		// If Boolean
 		if (leftVal instanceof BoolVal && rightVal instanceof BoolVal) {
 			boolean leftBool = ((BoolVal) leftVal).b;
 			boolean rightBool = ((BoolVal) rightVal).b;
@@ -396,6 +410,7 @@ public class IR1Interp {
 				result = (leftBool != rightBool);
 			}
 		}
+		// Otherwise Int vals
 		else if (leftVal instanceof IntVal && rightVal instanceof IntVal) {
 
 			int leftInt = ((IntVal) leftVal).i;
@@ -420,21 +435,27 @@ public class IR1Interp {
 				case NE:
 					result = leftInt != rightInt;
 					break;
+				// IntelliJ really wanted a default case here.
 				default:
-					throw new Exception("something is broken");
+					throw new Exception("Apparently we didn't get a valid operand.");
 			}
 		}
+		// Needed an else for IntelliJ to stop complaining at me.
 		else {
 			throw new Exception("Something went terribly wrong");
 		}
 
+		// If the conditional requirement is TRUE then we have to look
+		// up the location of the jump target
 		if (result) {
+			// I have no idea how to get the function name so just iterate.
 			for (LabMap i : labelMap.values()) {
 				if(i.containsKey(n.lab.name)) {
 					return i.get(n.lab.name);
 				}
 			}
 		}
+		// If the condition isnt met just roll through.
 		return CONTINUE;
 	}
 
@@ -445,6 +466,7 @@ public class IR1Interp {
 	//  Find and return the instruction index of the jump target label.
 	//
 	static int execute(IR1.Jump n, Env env) throws Exception {
+		// Same as above, just brute force find the labmap
 		for (LabMap i : labelMap.values()) {
 			if(i.containsKey(n.lab.name)) {
 				return i.get(n.lab.name);
@@ -468,28 +490,52 @@ public class IR1Interp {
 	//    the return value (should be avaiable in variable 'retVal').
 	//
 	static int execute(IR1.Call n, Env env) throws Exception {
+		// Three cases to check based on pre defined functions in pdf
+		// malloc, printInt, and printStr
+		//
+		// Malloc routine
+		//
 		if(n.gname.s.equals("_malloc")) {
+			// Get current end point in arraylist
 			int pos = memory.size();
+			// Pull the size we need to malloc
 			int memSize = ((IntVal) evaluate(n.args[0], env)).i;
+			// Dump undefined values into memory for that object.
+			// to represent allocation
 			for(int i=0; i < memSize; i++) {
 				memory.add(new UndVal());
 			}
+			// Save the location in memory to the destination
 			env.put(n.rdst.toString(), new IntVal(pos));
+		//
+		// PrintInt routine
+		//
 		} else if (n.gname.s.equals("_printInt")) {
 			Val val = evaluate(n.args[0], env);
 			System.out.println("" + val);
+		//
+		// PrintStr routine
+		//
 		} else if (n.gname.s.equals("_printStr")) {
 			Val val = evaluate(n.args[0], env);
 			System.out.println("" + val);
+		//
+		// Some other Function has been called
+		//
 		} else {
+			// Get func info
 			IR1.Func func = funcMap.get(n.gname.s);
+			// Create a new env for the function
 			Env funcEnv = new Env();
 			int count = 0;
+			// Assume the params and args match up
 			for(IR1.Id p: func.params) {
 				funcEnv.put("" + p, evaluate(n.args[count], env));
 				count++;
 			}
+			// Execute that
 			execute(func, funcEnv);
+			// Save return value into dst
 			env.put(n.rdst.toString(), retVal);
 		}
 		return CONTINUE;
