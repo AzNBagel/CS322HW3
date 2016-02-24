@@ -284,7 +284,7 @@ public class IR1Interp {
 						break;
 				}
 			}
-		}	// Otherwise we must have a Relational Operand
+		}  // Otherwise we must have a Relational Operand
 		else if (n.op instanceof IR1.ROP) {
 			// Check what type of values we have
 			if (leftVal instanceof IntVal && rightVal instanceof IntVal) {
@@ -414,7 +414,7 @@ public class IR1Interp {
 		else if (leftVal instanceof IntVal && rightVal instanceof IntVal) {
 
 			int leftInt = ((IntVal) leftVal).i;
-			int rightInt = ((IntVal)rightVal).i;
+			int rightInt = ((IntVal) rightVal).i;
 
 			switch (n.op) {
 				case LE:
@@ -450,7 +450,7 @@ public class IR1Interp {
 		if (result) {
 			// I have no idea how to get the function name so just iterate.
 			for (LabMap i : labelMap.values()) {
-				if(i.containsKey(n.lab.name)) {
+				if (i.containsKey(n.lab.name)) {
 					return i.get(n.lab.name);
 				}
 			}
@@ -468,7 +468,7 @@ public class IR1Interp {
 	static int execute(IR1.Jump n, Env env) throws Exception {
 		// Same as above, just brute force find the labmap
 		for (LabMap i : labelMap.values()) {
-			if(i.containsKey(n.lab.name)) {
+			if (i.containsKey(n.lab.name)) {
 				return i.get(n.lab.name);
 			}
 		}
@@ -495,33 +495,33 @@ public class IR1Interp {
 		//
 		// Malloc routine
 		//
-		if(n.gname.s.equals("_malloc")) {
+		if (n.gname.s.equals("_malloc")) {
 			// Get current end point in arraylist
 			int pos = memory.size();
 			// Pull the size we need to malloc
 			int memSize = ((IntVal) evaluate(n.args[0], env)).i;
 			// Dump undefined values into memory for that object.
 			// to represent allocation
-			for(int i=0; i < memSize; i++) {
+			for (int i = 0; i < memSize; i++) {
 				memory.add(new UndVal());
 			}
 			// Save the location in memory to the destination
 			env.put(n.rdst.toString(), new IntVal(pos));
-		//
-		// PrintInt routine
-		//
+			//
+			// PrintInt routine
+			//
 		} else if (n.gname.s.equals("_printInt")) {
 			Val val = evaluate(n.args[0], env);
 			System.out.println("" + val);
-		//
-		// PrintStr routine
-		//
+			//
+			// PrintStr routine
+			//
 		} else if (n.gname.s.equals("_printStr")) {
 			Val val = evaluate(n.args[0], env);
 			System.out.println("" + val);
-		//
-		// Some other Function has been called
-		//
+			//
+			// Some other Function has been called
+			//
 		} else {
 			// Get func info
 			IR1.Func func = funcMap.get(n.gname.s);
@@ -529,7 +529,7 @@ public class IR1Interp {
 			Env funcEnv = new Env();
 			int count = 0;
 			// Assume the params and args match up
-			for(IR1.Id p: func.params) {
+			for (IR1.Id p : func.params) {
 				funcEnv.put("" + p, evaluate(n.args[count], env));
 				count++;
 			}
